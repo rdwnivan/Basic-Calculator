@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A cross-platform desktop calculator with Basic, Scientific, and Programmer modes">
+  <title>Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app" class="calculator-app">
+    <header class="calculator-header" role="banner">
+      <div class="header-left">
+        <h1 class="app-title">Calculator</h1>
+      </div>
+      <div class="header-center" id="mode-selector-container"></div>
+      <div class="header-right">
+        <button class="icon-btn" id="history-toggle" aria-label="Toggle history" aria-expanded="false" aria-controls="history-panel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 3h18v18H3z"/>
+            <path d="M12 8v8"/>
+            <path d="M8 12h8"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="calculator-main" role="main">
+      <aside class="history-panel" id="history-panel" role="complementary" aria-label="Calculation history">
+        <div class="history-header">
+          <h2>History</h2>
+          <div class="history-actions">
+            <button class="icon-btn" id="clear-history" aria-label="Clear history" title="Clear history">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </button>
+            <button class="icon-btn" id="close-history" aria-label="Close history" title="Close history">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="history-list" id="history-list" role="list" aria-live="polite"></div>
+        <div class="history-empty" id="history-empty" hidden>No calculations yet</div>
+      </aside>
+
+      <div class="calculator-content">
+        <section class="display-section" aria-label="Calculator display">
+          <div class="display" id="display" role="textbox" aria-live="polite" aria-label="Expression and result" tabindex="0">
+            <div class="display-expression" id="display-expression" aria-hidden="true"></div>
+            <div class="display-result" id="display-result" aria-hidden="true">0</div>
+          </div>
+        </section>
+
+        <section class="keypad-section" aria-label="Calculator keypad">
+          <div class="keypad" id="keypad" role="grid" aria-label="Calculator buttons"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
