@@ -1,6 +1,6 @@
 # Calculator
 
-A cross-platform desktop calculator with Basic, Scientific, and Programmer modes.
+A cross-platform desktop calculator with Basic, Scientific modes.
 
 ## Features
 
