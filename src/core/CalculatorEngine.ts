@@ -2,7 +2,7 @@
  * Main calculator engine
  */
 
-import { safeMath, bitwise } from '../utils/math';
+import { safeMath } from '../utils/math';
 import { CalculatorMode, CalculatorState } from '../types/calculator';
 import { historyStore } from './HistoryStore';
 

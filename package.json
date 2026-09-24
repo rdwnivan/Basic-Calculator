@@ -2,6 +2,7 @@
   "name": "calculator",
   "version": "1.0.0",
   "description": "A cross-platform desktop calculator with Basic, Scientific, and Programmer modes",
+  "main": "dist-electron/main.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,16 +11,38 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint src --ext ts",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "start": "electron .",
+    "dev:electron": "vite & electron .",
+    "build:exe": "tsc && vite build && tsc -p tsconfig.electron.json && node scripts/electron-cjs.mjs && electron-builder --win --x64"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
     "eslint": "^8.0.0",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0",
     "vite": "^5.0.0",
     "vitest": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.calculator.app",
+    "productName": "Calculator",
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    }
   }
 }

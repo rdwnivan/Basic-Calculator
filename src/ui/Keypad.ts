@@ -7,7 +7,7 @@ export class Keypad {
     constructor(containerId: string, onAction: (action: string) => void) {
         this.container = document.getElementById(containerId)!;
 
-        delegate(this.container, 'button', 'click', (event, target) => {
+        delegate(this.container, 'button', 'click', (_event, target) => {
             const action = target.getAttribute('data-action');
             if (action) onAction(action);
         });
